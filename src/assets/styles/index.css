@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@layer base {
+  button,
+  input,
+  textarea {
+    @apply resize-none outline-0 outline-none border-0 bg-transparent text-[var(--text-primary)];
+  }
+
+  button,
+  a {
+    @apply select-none;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  body {
+    @apply text-[var(--text-primary)] bg-[var(--bg-primary)] overflow-x-hidden overflow-y-auto font-ubuntu antialiased;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-[var(--scrollbar-track)];
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-[var(--scrollbar-thumb)];
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-[var(--scrollbar-thumb-hover)];
+  }
+}
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+@layer components {
+  /* hide the scollbar */
+  .scroll-hidden::-webkit-scrollbar {
+    @apply w-0 h-0;
+  }
+  .scroll-hidden-x::-webkit-scrollbar {
+    @apply h-0;
+  }
+  .scroll-hidden-y::-webkit-scrollbar {
+    @apply w-0;
+  }
+
+  /* image effects */
+  .effect-normal {
+    @apply relative grayscale-[0%] hue-rotate-[0deg] invert-[0%] opacity-[100%] saturate-[100%] sepia-[0%];
+  }
+  .effect-normal > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full bg-transparent;
+  }
+  .effect-aden {
+    @apply relative contrast-[90%] brightness-[120%] saturate-[85%] hue-rotate-[20deg];
+  }
+  .effect-aden > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-darken bg-gradient-to-r from-[rgba(66,10,14,0.2)_100%] to-[rgba(66,10,14,0)];
+  }
+  .effect-amaro {
+    @apply contrast-[90%] brightness-[110%] saturate-[150%] hue-rotate-[-10deg];
+  }
+  .effect-brannan {
+    @apply relative contrast-[140%] sepia-[50%];
+  }
+  .effect-brannan > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-lighten bg-[rgba(161,44,199,0.31)];
+  }
+  .effect-brooklyn {
+    @apply relative contrast-[90%] brightness-[110%];
+  }
+  .effect-brooklyn > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-overlay bg-[radial-gradient(circle_at_50%_50%,rgba(168,223,193,0.4)_0%,rgba(183,196,200,0.2)_100%)];
+  }
+  .effect-clarendon {
+    @apply relative contrast-[120%] saturate-[125%];
+  }
+  .effect-clarendon > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-overlay bg-[rgba(127,187,227,0.2)];
+  }
+  .effect-earlybird {
+    @apply relative contrast-[90%] sepia-[20%];
+  }
+  .effect-earlybird > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-overlay bg-[radial-gradient(circle_at_50%_50%,rgba(208,186,142,1)_20%,rgba(29,2,16,0.2))];
+  }
+  .effect-gingham {
+    @apply relative brightness-[105%] hue-rotate-[350deg];
+  }
+  .effect-gingham > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-darken bg-gradient-to-r from-[rgba(66,10,14,0.5)_100%] to-[rgba(0,0,0,0)];
+  }
+  .effect-hudson {
+    @apply relative contrast-[90%] brightness-[120%] saturate-[110%];
+  }
+  .effect-hudson > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-multiply opacity-50 bg-[radial-gradient(circle_at_50%_50%,rgba(255,177,166,1)_50%,rgba(52,33,52,1))];
+  }
+  .effect-inkwell {
+    @apply relative contrast-[110%] brightness-[110%] sepia-[30%] grayscale-[100%];
+  }
+  .effect-inkwell > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0)];
+  }
+  .effect-lofi {
+    @apply relative contrast-[150%] saturate-[110%];
+  }
+  .effect-lofi > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-multiply bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0)_70%,rgba(34,34,34,1))];
+  }
+  .effect-maven {
+    @apply relative contrast-[95%] brightness-[95%] saturate-[150%] sepia-[25%];
+  }
+  .effect-maven > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-hue bg-[rgba(3,230,26,0.2)];
+  }
+  .effect-perpetua {
+    @apply relative;
+  }
+  .effect-perpetua::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-soft-light opacity-50 bg-gradient-to-b from-[rgba(0,91,154,1)_100%] to-[rgba(61,193,230,0)];
+  }
+  .effect-reyes {
+    @apply relative contrast-[85%] brightness-[110%] saturate-[75%] sepia-[22%];
+  }
+  .effect-reyes > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-soft-light opacity-50 bg-[rgba(173,205,239,1)];
+  }
+  .effect-stinson {
+    @apply relative contrast-[75%] brightness-[115%] saturate-[85%];
+  }
+  .effect-stinson > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-soft-light bg-[rgba(240,149,128,0.2)];
+  }
+  .effect-toaster {
+    @apply relative contrast-[150%] brightness-[90%];
+  }
+  .effect-toaster > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-screen opacity-50 bg-[radial-gradient(circle_at_50%_50%,rgba(15,78,128,1)_100%,rgba(59,0,59,1))];
+  }
+  .effect-walden {
+    @apply relative brightness-[110%] saturate-[160%] sepia-[30%] hue-rotate-[350deg];
+  }
+  .effect-walden > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-screen opacity-30 bg-[rgba(204,68,0,1)];
+  }
+  .effect-valencia {
+    @apply relative contrast-[108%] brightness-[108%] sepia-[8%];
+  }
+  .effect-valencia > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-exclusion opacity-50 bg-[rgba(58,3,57,1)];
+  }
+  .effect-xpro2 {
+    @apply relative sepia-[30%];
+  }
+  .effect-xpro2 > img::after {
+    @apply content-none absolute top-0 left-0 w-full h-full mix-blend-color-burn bg-[radial-gradient(circle_at_50%_50%,rgba(224,231,230,1)_40%,rgba(43,42,161,0.6))];
+  }
+
+  .timeline {
+    @apply absolute z-[1] bottom-0 left-0 right-0 flex w-full h-[3px] bg-neutral-800;
+  }
+  .timeline::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    right: calc(100% - var(--progress-position) * 100%);
+    background-color: #b91c1c;
+  }
+
+  #root {
+    @apply flex w-full h-full min-h-dvh justify-center;
+  }
+
+  .text-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 38px;
+    overflow: hidden;
+  }
+
+  .text-input .text-input-box {
+    width: 100%;
+    padding: 9px 8px 7px 8px;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+
+  .text-input .text-placeholder {
+    position: absolute;
+    text-overflow: ellipsis;
+    transform-origin: left;
+    font-size: 12px;
+    left: 8px;
+    pointer-events: none;
+    transition: transform ease-out 0.1s;
+    color: var(--text-secondary-hover);
+  }
+
+  .text-input-box:valid + .text-placeholder {
+    transform: scale(calc(10 / 12)) translateY(-10px);
+  }
+
+  .text-input-box:valid {
+    padding: 14px 8px 2px 8px;
+    font-size: 12px;
+  }
+
+  .mention-suggestion {
+    @apply flex flex-col p-2 gap-2 bg-[var(--bg-secondary-hover)] rounded-lg;
+  }
+
+  .suggestion-item {
+    @apply flex py-1 px-2 hover:bg-[var(--bg-secondary)] active:bg-[var(--bg-secondary)] rounded-lg cursor-pointer;
+  }
+}
